@@ -19036,23 +19036,24 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":53}],159:[function(require,module,exports){
 var React = require('react');
-var listitem = require('./ListItem.jsx'); //non npm modules we have to give path
+var ListItem = require('./ListItem.jsx');
 
 var ingredients = [{ "id": 1, "text": "ham" }, { "id": 2, "text": "cheese" }, { "id": 3, "text": "potatoes" }];
+
 var List = React.createClass({
-  displayName: 'List',
+    displayName: 'List',
 
-  render: function () {
-    var listItems = ingredients.map(function (item) {
-      return React.createElement('listitem', { key: item.id, ingredient: item.text });
-    });
+    render: function () {
+        var listItems = ingredients.map(function (item) {
+            return React.createElement(ListItem, { key: item.id, ingredient: item.text });
+        });
 
-    return React.createElement(
-      'ul',
-      null,
-      listItems
-    );
-  }
+        return React.createElement(
+            'ul',
+            null,
+            listItems
+        );
+    }
 });
 
 module.exports = List;
@@ -19080,9 +19081,9 @@ module.exports = ListItem;
 
 },{"react":158}],161:[function(require,module,exports){
 var React = require('react');
-var ReactDom = require('react-dom');
+var ReactDOM = require('react-dom');
 var List = require('./components/List.jsx');
 
-ReactDom.render(React.createElement(List, null), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(List, null), document.getElementById('ingredients'));
 
 },{"./components/List.jsx":159,"react":158,"react-dom":29}]},{},[161]);
